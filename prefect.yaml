@@ -1,0 +1,26 @@
+# generic metadata
+prefect-version: 3.1.10
+name: demo
+
+# preparation steps
+build:
+push:
+
+# runtime steps
+pull:
+
+# deployment configurations
+deployments:
+- name: ShowStarsNew
+  version:
+  tags: []
+  concurrency_limit: 1
+  description: 'Flow: Show the number of stars that GitHub repos have'
+  entrypoint: flows/zero_flow.py:show_stars
+  parameters: {}
+  work_pool:
+    name: local
+    work_queue_name:
+    job_variables: {}
+  enforce_parameter_schema: true
+  schedules: []
